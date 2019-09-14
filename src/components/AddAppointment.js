@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uuid from "uuid";
 
 class AddAppointment extends Component {
   //refs
@@ -7,17 +8,48 @@ class AddAppointment extends Component {
   dateRef = React.createRef();
   timeRef = React.createRef();
   symptomsRef = React.createRef();
-  state = {};
+  state = {
+    error: false
+  };
   createNewAppointment = e => {
     e.preventDefault();
-    console.log(this.petNameRef.current.value);
-    console.log(this.ownerNameRef.current.value);
-    console.log(this.dateRef.current.value);
-    console.log(this.timeRef.current.value);
-    console.log(this.symptomsRef.current.value);
-    this.props.createAppointment();
+
+    const pet = this.petNameRef.current.value,
+      owner = this.ownerNameRef.current.value,
+      date = this.dateRef.current.value,
+      time = this.timeRef.current.value,
+      symptoms = this.symptomsRef.current.value;
+    if (
+      pet === "" ||
+      owner === "" ||
+      date === "" ||
+      time === "" ||
+      symptoms === ""
+    ) {
+      this.setState({
+        error: true
+      });
+    } else {
+      const newAppointment = {
+        id: uuid(),
+        pet,
+        owner,
+        date,
+        time,
+        symptoms
+      };
+
+      //Se envia newAppointment para actualizar el state
+      this.props.createAppointment(newAppointment);
+      //Reinicio del form
+      e.currentTarget.reset();
+      this.setState({
+        error: false
+      });
+    }
   };
   render() {
+    const errorExist = this.state.error;
     return (
       <div className="card mt-5">
         <div className="card-body">
@@ -89,6 +121,13 @@ class AddAppointment extends Component {
               </div>
             </div>
           </form>
+          {errorExist ? (
+            <div className="alert alert-danger text-center">
+              All fields are required
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );
