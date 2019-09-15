@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uuid from "uuid";
+import PropTypes from "prop-types";
 
 class AddAppointment extends Component {
   //refs
@@ -53,11 +54,11 @@ class AddAppointment extends Component {
     return (
       <div className="card mt-5">
         <div className="card-body">
-          <h2 className="card-title text-center mb-5">Add appointment here</h2>
+          <h1 className="card-title text-center mb-5">Add appointment here</h1>
           <form onSubmit={this.createNewAppointment}>
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                Pet name
+                🐶 Pet name
               </label>
               <div className="col-sm-8 col-lg-10">
                 <input
@@ -68,9 +69,10 @@ class AddAppointment extends Component {
                 />
               </div>
             </div>
+
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                Owner name
+                🙍‍ Owner name
               </label>
               <div className="col-sm-8 col-lg-10">
                 <input
@@ -83,7 +85,9 @@ class AddAppointment extends Component {
             </div>
 
             <div className="form-group row">
-              <label className="col-sm-4 col-lg-2 col-form-label">Date</label>
+              <label className="col-sm-4 col-lg-2 col-form-label">
+                📅 Date
+              </label>
               <div className="col-sm-8 col-lg-4  mb-4 mb-lg-0">
                 <input
                   ref={this.dateRef}
@@ -92,7 +96,9 @@ class AddAppointment extends Component {
                 />
               </div>
 
-              <label className="col-sm-4 col-lg-2 col-form-label">Time</label>
+              <label className="col-sm-4 col-lg-2 col-form-label">
+                ⌚ Time
+              </label>
               <div className="col-sm-8 col-lg-4">
                 <input
                   ref={this.timeRef}
@@ -104,7 +110,7 @@ class AddAppointment extends Component {
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                Symptoms
+                ⚠ Symptoms
               </label>
               <div className="col-sm-8 col-lg-10">
                 <textarea
@@ -116,7 +122,7 @@ class AddAppointment extends Component {
             <div className="form-group row justify-content-end">
               <div className="col-sm-3">
                 <button type="submit" className="btn btn-success w-100">
-                  Add
+                  Add ✔
                 </button>
               </div>
             </div>
@@ -134,4 +140,7 @@ class AddAppointment extends Component {
   }
 }
 
+AddAppointment.propTypes = {
+  createAppointment: PropTypes.func.isRequired
+};
 export default AddAppointment;
