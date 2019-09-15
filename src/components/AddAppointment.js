@@ -58,7 +58,7 @@ class AddAppointment extends Component {
           <form onSubmit={this.createNewAppointment}>
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                🐶 Pet name
+                Pet name
               </label>
               <div className="col-sm-8 col-lg-10">
                 <input
@@ -72,7 +72,7 @@ class AddAppointment extends Component {
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                🙍‍ Owner name
+                Owner name
               </label>
               <div className="col-sm-8 col-lg-10">
                 <input
@@ -86,7 +86,7 @@ class AddAppointment extends Component {
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                📅 Date
+                Date
               </label>
               <div className="col-sm-8 col-lg-4  mb-4 mb-lg-0">
                 <input
@@ -97,7 +97,7 @@ class AddAppointment extends Component {
               </div>
 
               <label className="col-sm-4 col-lg-2 col-form-label">
-                ⌚ Time
+                Time
               </label>
               <div className="col-sm-8 col-lg-4">
                 <input
@@ -110,7 +110,7 @@ class AddAppointment extends Component {
 
             <div className="form-group row">
               <label className="col-sm-4 col-lg-2 col-form-label">
-                ⚠ Symptoms
+                Symptoms
               </label>
               <div className="col-sm-8 col-lg-10">
                 <textarea
